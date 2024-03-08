@@ -8,17 +8,16 @@ provider:
 functions:
   MyFunction:
     handler: src/index.handler
-    # environment:
-    #   ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-    #   SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
-    #   BUCKET_NAME:
-    #     Ref: MyS3Bucket
-    #   REGION: ${env:AWS_REGION}
-
-      events:
-        - http:
-            path: /random
-            method: get
+    environment:
+      ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+      SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+      BUCKET_NAME:
+        Ref: MyS3Bucket
+      REGION: ${env:AWS_REGION}
+    events:
+      - http:
+          path: /random
+          method: get
 
 resources:
   Resources:
@@ -29,16 +28,14 @@ resources:
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: N # Assuming "id" is a number
-
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-          # Add other key attributes as needed
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
 
-    MyS3Bucket: # New Resource for S3 Bucket
+    MyS3Bucket:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: demo-bucket-serverless-08-03-2024-shubham
