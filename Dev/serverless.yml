@@ -8,12 +8,12 @@ provider:
 functions:
   MyFunction:
     handler: src/index.handler
-    environment:
-      ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-      SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
-      BUCKET_NAME:
-        Ref: MyS3Bucket
-      REGION: ${env:AWS_REGION}
+    # environment:
+    #   ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+    #   SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+    #   BUCKET_NAME:
+    #     Ref: MyS3Bucket
+    #   REGION: ${env:AWS_REGION}
 
       events:
         - http:
