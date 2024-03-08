@@ -41,5 +41,5 @@ resources:
     MyS3Bucket: # New Resource for S3 Bucket
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: demo-bucket-serverless-08-03-2024
+        BucketName: demo-bucket-serverless-08-03-2024-shubham
         AccessControl: Private
